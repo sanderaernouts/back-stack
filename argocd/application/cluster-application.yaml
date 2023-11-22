@@ -12,3 +12,8 @@ spec:
   destination: 
     name: in-cluster
     namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
