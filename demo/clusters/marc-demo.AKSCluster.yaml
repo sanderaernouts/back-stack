@@ -1,0 +1,19 @@
+apiVersion: backstack.cncf.io/v1alpha1
+kind: AKSCluster
+metadata:
+  name: marc-demo
+  namespace: default
+spec:
+  parameters:
+    id: marc-demo
+    region: West Europe
+    version: 1.27.3
+    nodes:
+      count: 1
+      instanceType: Standard_B2s
+  writeConnectionSecretToRef:
+    name: marc-demo-kubeconfig
+  publishConnectionDetailsTo:
+    name: marc-demo/marc-demo-kubeconfig
+    configRef:
+      name: vault
